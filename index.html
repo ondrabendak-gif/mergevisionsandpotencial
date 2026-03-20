@@ -1,595 +1,257 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merge Vision & Potential</title>
-  <meta name="description" content="Premium marketing and growth solutions for brands ready to scale with clarity, precision, and impact." />
-  <style>
-    :root {
-      --bg: #f4ecdf;
-      --bg-soft: #efe4d3;
-      --surface: rgba(255,255,255,0.42);
-      --text: #3d2b1f;
-      --muted: #735845;
-      --line: rgba(92, 60, 36, 0.18);
-      --gold: #a67c52;
-      --gold-dark: #7a5634;
-      --bronze: #8e6a4b;
-      --shadow: 0 20px 60px rgba(84, 56, 34, 0.12);
-      --radius: 24px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(166, 124, 82, 0.10), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(142, 106, 75, 0.10), transparent 24%),
-        linear-gradient(180deg, #f7f1e7 0%, #f1e6d6 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(14px);
-      background: rgba(247, 241, 231, 0.72);
-      border-bottom: 1px solid rgba(92, 60, 36, 0.08);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 0;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-mark {
-      font-size: 0.78rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      font-weight: 700;
-    }
-
-    .brand-name {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      transition: 0.25s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      color: #fffaf4;
-      box-shadow: 0 14px 30px rgba(122, 86, 52, 0.22);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 34px rgba(122, 86, 52, 0.28);
-    }
-
-    .btn-secondary {
-      border-color: rgba(122, 86, 52, 0.22);
-      background: rgba(255, 255, 255, 0.45);
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 86px 0 56px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-
-    .hero-card,
-    .panel,
-    .service-card,
-    .contact-card,
-    .stat,
-    .quote {
-      background: var(--surface);
-      border: 1px solid rgba(92, 60, 36, 0.10);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      backdrop-filter: blur(8px);
-    }
-
-    .hero-card {
-      padding: 56px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -60px -60px auto;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(166,124,82,0.18), transparent 66%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(166, 124, 82, 0.10);
-      color: var(--gold-dark);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    h1, h2, h3 { margin: 0; line-height: 1.08; }
-
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      max-width: 11ch;
-    }
-
-    .hero-copy {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 58ch;
-      margin: 22px 0 34px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 34px;
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .stat {
-      padding: 20px 18px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.4rem;
-      font-family: Georgia, "Times New Roman", serif;
-      margin-bottom: 4px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .panel {
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 22px;
-      min-height: 100%;
-    }
-
-    .panel-top {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .panel-label {
-      color: var(--gold-dark);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .panel h3 {
-      font-size: 1.5rem;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .panel ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .panel li + li { margin-top: 10px; }
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-
-    .section-head p {
-      margin: 0;
-      max-width: 60ch;
-      color: var(--muted);
-    }
-
-    h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 10px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .service-card {
-      padding: 28px;
-    }
-
-    .service-index {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(166,124,82,0.11);
-      color: var(--gold-dark);
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .service-card h3 {
-      font-size: 1.28rem;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .quote {
-      padding: 36px;
-      position: relative;
-    }
-
-    .quote p {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.6rem;
-      line-height: 1.35;
-      margin: 0 0 18px;
-    }
-
-    .quote small {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .panel-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .mini-card {
-      padding: 22px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.36);
-      border: 1px solid rgba(92, 60, 36, 0.10);
-    }
-
-    .mini-card strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .mini-card span {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .contact-card {
-      padding: 36px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
-      margin-top: 18px;
-    }
-
-    .contact-card p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    footer {
-      padding: 24px 0 42px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .footer-line {
-      height: 1px;
-      background: rgba(92, 60, 36, 0.10);
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 1024px) {
-      .hero-grid,
-      .services,
-      .split,
-      .contact-card,
-      .hero-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .panel-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card,
-      .panel,
-      .quote,
-      .contact-card {
-        padding: 28px;
-      }
-
-      .section-head {
-        align-items: start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
-      .container {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
-      .hero {
-        padding-top: 36px;
-      }
-
-      h1 {
-        font-size: 2.4rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="nav-wrap">
-    <div class="container">
-      <nav>
-        <a href="#top" class="brand">
-          <span class="brand-mark">MVP</span>
-          <span class="brand-name">Merge Vision &amp; Potential</span>
-        </a>
-        <div class="nav-links">
-          <a href="#services">Services</a>
-          <a href="#approach">Approach</a>
-          <a href="#contact">Contact</a>
-          <a href="mailto:hello@mergevisionandpotential.com" class="btn btn-secondary">Book a Call</a>
-        </div>
-      </nav>
-    </div>
-  </div>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-card">
-          <div class="eyebrow">Premium Marketing & Growth</div>
-          <h1>Where vision meets measurable potential.</h1>
-          <p class="hero-copy">
-            We help ambitious brands refine their message, elevate their presence, and build marketing systems designed for authority, trust, and sustainable growth.
-          </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Start the Conversation</a>
-            <a href="#services" class="btn btn-secondary">Explore Services</a>
+export default function MergeVisionsHomepage() {
+  const highlights = [
+    {
+      tag: "Premium positioning",
+      title: "Luxury Brand Presentation",
+      text: "Refined messaging, premium aesthetics, and elevated market perception for ambitious brands that want more than generic marketing.",
+    },
+    {
+      tag: "Growth systems",
+      title: "Scalable Lead Generation",
+      text: "Performance-focused acquisition systems designed to attract qualified prospects and build predictable growth.",
+    },
+    {
+      tag: "Creative authority",
+      title: "Memorable Brand Direction",
+      text: "A cohesive visual and strategic identity that helps your company stand apart in competitive categories.",
+    },
+    {
+      tag: "Precision strategy",
+      title: "High-Intent Messaging",
+      text: "We align positioning, offer clarity, and campaign messaging so every touchpoint feels sharper and more persuasive.",
+    },
+    {
+      tag: "Market advantage",
+      title: "Conversion-Driven Execution",
+      text: "From website structure to campaign thinking, every layer is built to support trust, action, and long-term value.",
+    },
+    {
+      tag: "Long-term value",
+      title: "Partnership Approach",
+      text: "We work closely with brands that care about quality, reputation, and meaningful commercial results.",
+    },
+  ];
+
+  const stats = [
+    { value: "4.9/5", label: "Client Satisfaction" },
+    { value: "95%", label: "Retention Rate" },
+    { value: "120+", label: "Happy Clients" },
+    { value: "25+", label: "Campaign Markets" },
+  ];
+
+  const jobs = [
+    {
+      title: "Senior Lead Generation Specialist",
+      dept: "Marketing",
+      location: "Larnaca, Cyprus",
+      type: "Full-time",
+      text: "Lead high-performance outreach and acquisition systems for premium clients across international markets.",
+    },
+    {
+      title: "Junior Sales Representative",
+      dept: "Sales",
+      location: "Larnaca, Cyprus",
+      type: "Full-time",
+      text: "Build strong prospect relationships and support revenue growth through structured, consultative communication.",
+    },
+    {
+      title: "Marketing Automation Engineer",
+      dept: "Technology",
+      location: "Larnaca, Cyprus",
+      type: "Full-time",
+      text: "Design and optimize automation workflows, campaign systems, and data-driven operational processes.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#eee7dc] text-[#3d2a20]">
+      <div className="border-b border-[#c9b39a] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.55))] backdrop-blur-sm sticky top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.45em] text-[#8b5e3c]">M V P</div>
+            <div className="font-serif text-3xl font-semibold tracking-tight">Merge Visions and Potencial</div>
           </div>
-          <div class="hero-meta">
-            <div class="stat">
-              <strong>Brand Positioning</strong>
-              <span>Clearer offers, stronger perception, sharper market fit.</span>
+          <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
+            <a href="#home" className="hover:text-[#8b5e3c]">Home</a>
+            <a href="#services" className="hover:text-[#8b5e3c]">Services</a>
+            <a href="#about" className="hover:text-[#8b5e3c]">About</a>
+            <a href="#careers" className="hover:text-[#8b5e3c]">Careers</a>
+            <a href="#contact" className="hover:text-[#8b5e3c]">Contact</a>
+          </nav>
+          <a
+            href="#contact"
+            className="rounded-full border border-[#b68a63] bg-[#8b5e3c] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
+          >
+            Book a Call
+          </a>
+        </div>
+      </div>
+
+      <section id="home" className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(176,128,86,0.18),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.65),rgba(222,209,194,0.9))]" />
+        <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(115deg,rgba(128,96,70,0.15)_25%,transparent_25%,transparent_50%,rgba(128,96,70,0.15)_50%,rgba(128,96,70,0.15)_75%,transparent_75%,transparent)] [background-size:22px_22px]" />
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[1.25fr_0.75fr] lg:px-10 lg:py-24">
+          <div className="rounded-[32px] border border-[#d9c8b4] bg-[rgba(255,255,255,0.78)] p-8 shadow-[0_20px_80px_rgba(91,62,39,0.12)] backdrop-blur-sm lg:p-12">
+            <div className="mb-6 inline-flex rounded-full border border-[#dbc2a7] bg-[#efe3d2] px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8b5e3c]">
+              Premium Marketing & Growth
             </div>
-            <div class="stat">
-              <strong>Growth Strategy</strong>
-              <span>Practical acquisition systems built for premium clients.</span>
-            </div>
-            <div class="stat">
-              <strong>Lead Generation</strong>
-              <span>Outbound and inbound structures with purpose and precision.</span>
+            <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[0.95] tracking-tight text-[#39251d] sm:text-6xl lg:text-7xl">
+              Where visions meet measurable potencial.
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-[#5e4637]">
+              We build premium positioning, persuasive messaging, and scalable growth systems for brands that want authority, elegance, and real business momentum.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                className="rounded-full bg-[#8b5e3c] px-7 py-4 text-sm font-semibold text-white shadow-md transition hover:scale-[1.02]"
+              >
+                Start the Conversation
+              </a>
+              <a
+                href="#services"
+                className="rounded-full border border-[#c6a785] bg-white/70 px-7 py-4 text-sm font-semibold text-[#4b3126] transition hover:bg-white"
+              >
+                Explore Services
+              </a>
             </div>
           </div>
-        </div>
 
-        <aside class="panel">
-          <div class="panel-top">
-            <span class="panel-label">Strategic Focus</span>
-            <h3>Designed for brands that want more than noise.</h3>
-            <ul>
-              <li>Refined messaging that reflects quality and confidence.</li>
-              <li>Acquisition systems aligned with premium positioning.</li>
-              <li>Creative direction that feels elevated, coherent, and memorable.</li>
+          <div className="rounded-[32px] border border-[#d9c8b4] bg-[rgba(255,255,255,0.72)] p-8 shadow-[0_20px_80px_rgba(91,62,39,0.10)] backdrop-blur-sm lg:p-10">
+            <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8b5e3c]">Strategic Focus</div>
+            <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-[#39251d]">
+              Designed for brands that want more than noise.
+            </h2>
+            <ul className="mt-8 space-y-5 text-lg leading-8 text-[#5e4637]">
+              <li>• Refined messaging that reflects quality and confidence.</li>
+              <li>• Acquisition systems aligned with premium positioning.</li>
+              <li>• Creative direction that feels elevated, coherent, and memorable.</li>
             </ul>
           </div>
-          <a href="mailto:hello@mergevisionandpotential.com" class="btn btn-primary">hello@mergevisionandpotential.com</a>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Core Services</div>
-            <h2>Built to support premium growth.</h2>
-          </div>
-          <p>
-            Merge Vision &amp; Potential combines strategic clarity with modern marketing execution to help brands grow with intention, consistency, and credibility.
-          </p>
         </div>
+      </section>
 
-        <div class="services">
-          <article class="service-card">
-            <div class="service-index">01</div>
-            <h3>Brand Strategy</h3>
-            <p>
-              Positioning, messaging, offer refinement, and strategic direction that turns ideas into a coherent market presence.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-index">02</div>
-            <h3>Lead Generation</h3>
-            <p>
-              Targeted outreach systems, funnel thinking, and conversion-focused campaigns designed to attract qualified opportunities.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-index">03</div>
-            <h3>Creative &amp; Presence</h3>
-            <p>
-              Elegant digital presentation, landing pages, campaign assets, and visual direction that communicate trust and quality.
-            </p>
-          </article>
+      <section id="services" className="mx-auto max-w-7xl px-6 py-8 lg:px-10 lg:py-12">
+        <div className="mb-10 text-center">
+          <div className="text-sm font-semibold uppercase tracking-[0.35em] text-[#8b5e3c]">Why Merge Visions and Potencial is Different</div>
+          <h2 className="mt-4 font-serif text-4xl font-semibold text-[#39251d] sm:text-5xl">Built for premium growth.</h2>
         </div>
-      </div>
-    </section>
-
-    <section id="approach">
-      <div class="container split">
-        <div class="quote">
-          <p>
-            Great marketing is not louder. It is sharper, better positioned, and impossible to ignore for the right audience.
-          </p>
-          <small>— Merge Vision &amp; Potential philosophy</small>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {highlights.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[28px] border border-[#d6c0a8] bg-[rgba(255,255,255,0.72)] p-8 shadow-[0_14px_50px_rgba(91,62,39,0.08)]"
+            >
+              <div className="mb-5 inline-flex rounded-full border border-[#d8b796] bg-[#f2e6d8] px-4 py-2 text-xs font-semibold text-[#8b5e3c]">
+                {item.tag}
+              </div>
+              <h3 className="font-serif text-3xl font-semibold text-[#39251d]">{item.title}</h3>
+              <p className="mt-4 text-base leading-8 text-[#5e4637]">{item.text}</p>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <div class="panel">
-          <div>
-            <div class="eyebrow">Our Approach</div>
-            <h2>Strategy first. Execution with discipline.</h2>
-          </div>
-          <div class="panel-grid">
-            <div class="mini-card">
-              <strong>Clarity</strong>
-              <span>We simplify the offer, sharpen the message, and make your value obvious.</span>
+      <section id="about" className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-16">
+        <div className="rounded-[36px] border border-[#c9ad90] bg-[linear-gradient(135deg,rgba(116,78,52,0.94),rgba(76,52,39,0.92))] p-8 text-[#fff7ef] shadow-[0_25px_90px_rgba(61,42,32,0.25)] lg:p-12">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div>
+              <h2 className="font-serif text-4xl font-semibold sm:text-5xl">
+                Our <span className="text-[#e0b17f]">Culture</span>
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-9 text-[#f3e7db]">
+                At Merge Visions and Potencial, we bring exceptional people together to build premium campaigns, stronger brands, and smarter growth systems. Our culture values elegance in execution, clear thinking, and measurable impact.
+              </p>
+              <div className="mt-8 space-y-4 text-base text-[#f4eade]">
+                <div>✦ Modern premium environment with high standards and strong collaboration</div>
+                <div>✦ Performance-first culture with immediate impact on client growth</div>
+                <div>✦ International mindset and ambitious long-term brand building</div>
+              </div>
             </div>
-            <div class="mini-card">
-              <strong>Precision</strong>
-              <span>We focus on the right channels, audiences, and actions instead of vanity activity.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Authority</strong>
-              <span>We shape perception so your brand looks established, premium, and dependable.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Momentum</strong>
-              <span>We build structures that support repeatable growth, not short-lived spikes.</span>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {stats.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-[24px] border border-[#af8765] bg-[rgba(30,19,14,0.22)] p-8 text-center backdrop-blur-sm"
+                >
+                  <div className="text-4xl font-bold text-[#f1b277]">{item.value}</div>
+                  <div className="mt-3 text-base text-[#f5e8dc]">{item.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="contact-card">
-          <div>
-            <div class="eyebrow">Contact</div>
-            <h2>Ready to elevate your brand?</h2>
-            <p>
-              Let’s build a stronger presence, a clearer message, and a growth strategy that matches the quality of your ambition.
-            </p>
-          </div>
-          <a class="btn btn-primary" href="mailto:hello@mergevisionandpotential.com">Book a Strategy Call</a>
+      <section id="careers" className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-14">
+        <div className="mb-10 text-center">
+          <div className="text-sm font-semibold uppercase tracking-[0.35em] text-[#8b5e3c]">Careers</div>
+          <h2 className="mt-4 font-serif text-4xl font-semibold text-[#39251d] sm:text-5xl">Open Positions</h2>
         </div>
-      </div>
-    </section>
-  </main>
+        <div className="space-y-6">
+          {jobs.map((job) => (
+            <div
+              key={job.title}
+              className="flex flex-col gap-6 rounded-[28px] border border-[#d2b89d] bg-[rgba(255,255,255,0.75)] p-8 shadow-[0_14px_50px_rgba(91,62,39,0.08)] lg:flex-row lg:items-center lg:justify-between"
+            >
+              <div className="max-w-3xl">
+                <div className="flex flex-wrap items-center gap-4">
+                  <h3 className="font-serif text-3xl font-semibold text-[#39251d]">{job.title}</h3>
+                  <span className="rounded-full border border-[#d8b796] bg-[#f2e6d8] px-4 py-2 text-sm font-semibold text-[#8b5e3c]">
+                    {job.type}
+                  </span>
+                </div>
+                <div className="mt-4 text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a4f]">
+                  {job.dept} • {job.location}
+                </div>
+                <p className="mt-5 text-lg leading-8 text-[#5e4637]">{job.text}</p>
+              </div>
+              <a
+                href="#contact"
+                className="inline-flex rounded-full bg-[#8b5e3c] px-7 py-4 text-sm font-semibold text-white shadow-md transition hover:scale-[1.02]"
+              >
+                Apply Now →
+              </a>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg text-[#6a4f3f]">Don&apos;t see the perfect role? We&apos;re always looking for exceptional talent.</p>
+          <a
+            href="#contact"
+            className="mt-6 inline-flex rounded-full bg-[linear-gradient(135deg,#a46c45,#7c5035)] px-8 py-4 text-sm font-semibold text-white shadow-md transition hover:scale-[1.02]"
+          >
+            Send Us Your Resume
+          </a>
+        </div>
+      </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-line"></div>
-      <div>© 2026 Merge Vision &amp; Potential. All rights reserved.</div>
+      <section id="contact" className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
+        <div className="rounded-[34px] border border-[#cfb396] bg-[rgba(255,255,255,0.78)] p-8 shadow-[0_18px_70px_rgba(91,62,39,0.10)] lg:p-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-[#8b5e3c]">Contact</div>
+              <h2 className="mt-4 font-serif text-4xl font-semibold text-[#39251d] sm:text-5xl">Ready to build something more powerful?</h2>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5e4637]">
+                Let&apos;s talk about positioning, growth systems, careers, or how Merge Visions and Potencial can help shape your next stage of expansion.
+              </p>
+            </div>
+            <div className="rounded-[28px] border border-[#dcc4ae] bg-[#f6eee5] p-8">
+              <div className="space-y-4 text-lg text-[#4d3529]">
+                <div><span className="font-semibold">Email:</span> info@mergevisionsandpotencial.com</div>
+                <div><span className="font-semibold">Location:</span> Larnaca, Cyprus</div>
+                <div><span className="font-semibold">Availability:</span> By appointment</div>
+              </div>
+              <a
+                href="mailto:info@mergevisionsandpotencial.com"
+                className="mt-8 inline-flex rounded-full bg-[#8b5e3c] px-7 py-4 text-sm font-semibold text-white shadow-md transition hover:scale-[1.02]"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </footer>
-</body>
-</html>
+  );
+}
