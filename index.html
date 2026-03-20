@@ -1,86 +1,68 @@
-export default function MergeVisionsHomepage() {
-  const highlights = [
-    {
-      tag: "Premium positioning",
-      title: "Refined Brand Authority",
-      text: "We shape elevated brand presentation, sharper messaging, and premium market positioning for companies that want to be remembered.",
-    },
-    {
-      tag: "Growth systems",
-      title: "Scalable Lead Generation",
-      text: "From strategy to execution, we build reliable acquisition systems designed to attract qualified interest and support long-term growth.",
-    },
-    {
-      tag: "Creative clarity",
-      title: "Messaging That Converts",
-      text: "We align visual direction, offer clarity, and persuasive communication so every touchpoint feels stronger and more intentional.",
-    },
-    {
-      tag: "Client trust",
-      title: "High-Value Presentation",
-      text: "Luxury-style design language, credibility-focused structure, and clearer storytelling that helps brands look as strong as they actually are.",
-    },
-    {
-      tag: "Execution",
-      title: "Performance-Driven Delivery",
-      text: "Every campaign, landing page, and growth asset is built with measurable results, cleaner structure, and stronger user action in mind.",
-    },
-    {
-      tag: "Partnership",
-      title: "Built For Ambitious Brands",
-      text: "We work with brands that value quality, aesthetics, trust, and a growth strategy that feels premium rather than generic.",
-    },
+export default function MVPWebsite() {
+  const stats = [
+    { value: '30+', label: 'Countries Reached' },
+    { value: '50K+', label: 'Happy Clients' },
+    { value: '1K+', label: 'Successful Projects' },
+    { value: '98%', label: 'Client Retention' },
   ];
 
-  const stats = [
-    { value: "30+", label: "Countries Reached" },
-    { value: "50K+", label: "Happy Clients" },
-    { value: "1K+", label: "Successful Projects" },
-    { value: "Premium", label: "Growth Approach" },
+  const services = [
+    {
+      title: 'Sales Growth',
+      text: 'We help brands scale revenue with strong outbound systems, premium communication, and measurable execution.',
+    },
+    {
+      title: 'Lead Generation',
+      text: 'Targeted acquisition strategies built to deliver qualified opportunities, not just empty traffic.',
+    },
+    {
+      title: 'Brand Positioning',
+      text: 'We refine how your company looks, sounds, and converts so your market instantly feels the difference.',
+    },
   ];
 
   const jobs = [
     {
-      title: "Sales Representative",
-      dept: "Sales",
-      location: "Larnaca, Cyprus",
-      type: "Full-time",
-      text: "Build relationships with prospects, present solutions confidently, and help drive premium client acquisition across international markets.",
+      title: 'Sales Representative',
+      text: 'Confident communicator with drive, consistency, and the ability to build trust with premium clients.',
     },
     {
-      title: "Sales Assistant",
-      dept: "Sales Support",
-      location: "Larnaca, Cyprus",
-      type: "Full-time",
-      text: "Support the sales process, coordinate communication, assist with lead handling, and help keep commercial operations sharp and organised.",
+      title: 'Sales Assistant',
+      text: 'Organized, detail-oriented support role focused on smooth operations, follow-up, and team execution.',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#ece3d6] text-[#38231a] selection:bg-[#a56f45] selection:text-white">
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(177,124,80,0.18),transparent_35%),linear-gradient(180deg,#f3ece3_0%,#e9dfd1_45%,#e4d7c7_100%)]" />
-      <div className="fixed inset-0 -z-10 opacity-[0.28] [background-image:radial-gradient(rgba(98,67,46,0.16)_0.6px,transparent_0.6px)] [background-size:16px_16px]" />
+    <div className="min-h-screen bg-[#f6f1ea] text-[#2f241d] selection:bg-[#c58b4e]/20">
+      <style>{`
+        html { scroll-behavior: smooth; }
+        body { background: #f6f1ea; }
+      `}</style>
 
-      <header className="sticky top-0 z-50 border-b border-[#ceb79d] bg-[rgba(248,242,235,0.82)] backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-          <div>
-            <div className="text-[11px] font-bold uppercase tracking-[0.5em] text-[#9a6b47]">M V P</div>
-            <div className="font-serif text-[30px] font-semibold leading-none tracking-tight text-[#3c261c]">
-              Merge Visions and Potencial
+      <header className="sticky top-0 z-50 border-b border-[#dcc7aa] bg-[#f6f1ea]/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+          <a href="#home" className="group flex items-center gap-4">
+            <div>
+              <div className="mb-1 text-[11px] font-semibold uppercase tracking-[0.55em] text-[#b7793b]">
+                MVP
+              </div>
+              <div className="font-serif text-2xl font-semibold leading-none text-[#5a3b24] sm:text-3xl">
+                Merge Visions and Potencial
+              </div>
             </div>
-          </div>
+          </a>
 
-          <nav className="hidden items-center gap-8 text-[15px] font-medium text-[#5d4332] md:flex">
-            <a href="#home" className="transition hover:text-[#9a6b47]">Home</a>
-            <a href="#services" className="transition hover:text-[#9a6b47]">Services</a>
-            <a href="#about" className="transition hover:text-[#9a6b47]">About</a>
-            <a href="#careers" className="transition hover:text-[#9a6b47]">Careers</a>
-            <a href="#contact" className="transition hover:text-[#9a6b47]">Contact</a>
+          <nav className="hidden items-center gap-8 text-sm font-medium text-[#6b5140] lg:flex">
+            <a href="#home" className="transition hover:text-[#b7793b]">Home</a>
+            <a href="#services" className="transition hover:text-[#b7793b]">Services</a>
+            <a href="#about" className="transition hover:text-[#b7793b]">About</a>
+            <a href="#careers" className="transition hover:text-[#b7793b]">Careers</a>
+            <a href="#contact" className="transition hover:text-[#b7793b]">Contact</a>
           </nav>
 
           <a
             href="#contact"
-            className="rounded-full border border-[#c5966d] bg-[linear-gradient(135deg,#aa7449,#845234)] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(122,77,47,0.22)] transition hover:scale-[1.02]"
+            className="rounded-full border border-[#c79357] bg-gradient-to-br from-[#d8a56f] to-[#b7793b] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(183,121,59,0.22)] transition hover:scale-[1.02]"
           >
             Book a Call
           </a>
@@ -88,119 +70,118 @@ export default function MergeVisionsHomepage() {
       </header>
 
       <main>
-        <section id="home" className="mx-auto max-w-7xl px-6 pb-10 pt-12 lg:px-10 lg:pb-14 lg:pt-16">
-          <div className="grid gap-8 lg:grid-cols-[1.18fr_0.82fr]">
-            <div className="relative overflow-hidden rounded-[36px] border border-[#d7c2ac] bg-[linear-gradient(145deg,rgba(255,255,255,0.8),rgba(246,237,227,0.76))] p-8 shadow-[0_24px_80px_rgba(99,69,47,0.12)] lg:p-12">
-              <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(120deg,rgba(173,129,89,0.10),transparent_35%,rgba(124,85,55,0.08)_70%,transparent)]" />
-              <div className="relative">
-                <div className="mb-6 inline-flex rounded-full border border-[#dbc4ad] bg-[#f2e6d7] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#9a6b47]">
-                  Premium Marketing & Growth
-                </div>
-                <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[0.94] tracking-[-0.03em] text-[#3a241a] sm:text-6xl lg:text-[88px]">
-                  Where visions
-                  <br />
-                  meet measurable
-                  <br />
-                  potencial.
-                </h1>
-                <p className="mt-8 max-w-2xl text-lg leading-8 text-[#61483a] lg:text-[21px]">
-                  We help ambitious brands refine their message, elevate their presence, and build growth systems designed for authority, trust, and sustainable expansion.
-                </p>
-
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <a
-                    href="#contact"
-                    className="rounded-full bg-[linear-gradient(135deg,#a56f45,#7e4e32)] px-7 py-4 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(119,77,50,0.22)] transition hover:scale-[1.02]"
-                  >
-                    Start the Conversation
-                  </a>
-                  <a
-                    href="#services"
-                    className="rounded-full border border-[#d0b59a] bg-white/70 px-7 py-4 text-sm font-semibold text-[#4b3125] transition hover:bg-white"
-                  >
-                    Explore Services
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-[36px] border border-[#d6bda2] bg-[linear-gradient(145deg,rgba(87,57,39,0.94),rgba(63,41,29,0.94))] p-8 text-[#fff5ea] shadow-[0_24px_80px_rgba(80,52,35,0.18)] lg:p-10">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#d4a678]">Strategic Focus</div>
-              <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-white lg:text-[48px]">
-                Designed for brands that want more than noise.
-              </h2>
-              <ul className="mt-8 space-y-5 text-[17px] leading-8 text-[#f2dfcf]">
-                <li>• Refined messaging that reflects quality and confidence.</li>
-                <li>• Premium campaign systems aligned with stronger positioning.</li>
-                <li>• Brand presentation that feels elevated, coherent, and memorable.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-6 py-4 lg:px-10 lg:py-6">
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {stats.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-[28px] border border-[#d3b79a] bg-[rgba(255,248,242,0.7)] p-7 text-center shadow-[0_12px_40px_rgba(92,61,40,0.08)] backdrop-blur-sm"
-              >
-                <div className="font-serif text-4xl font-semibold text-[#9d6a44] lg:text-5xl">{item.value}</div>
-                <div className="mt-3 text-sm font-medium uppercase tracking-[0.18em] text-[#6a4d3b]">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="services" className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-16">
-          <div className="mb-10 text-center">
-            <div className="text-[12px] font-semibold uppercase tracking-[0.35em] text-[#9a6b47]">Why Merge Visions and Potencial is Different</div>
-            <h2 className="mt-4 font-serif text-4xl font-semibold text-[#3a241a] sm:text-5xl lg:text-[58px]">
-              Premium growth, beautifully executed.
-            </h2>
+        <section id="home" className="relative overflow-hidden">
+          <div className="absolute inset-0 opacity-40">
+            <div className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#d7ba95]/30 blur-3xl" />
+            <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-[#c58b4e]/15 blur-3xl" />
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {highlights.map((item) => (
-              <div
-                key={item.title}
-                className="group rounded-[30px] border border-[#d7c1a8] bg-[linear-gradient(145deg,rgba(255,255,255,0.78),rgba(244,234,223,0.72))] p-8 shadow-[0_16px_55px_rgba(95,66,44,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(95,66,44,0.12)]"
-              >
-                <div className="mb-5 inline-flex rounded-full border border-[#dec4a8] bg-[#f3e7d7] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#9a6b47]">
-                  {item.tag}
-                </div>
-                <h3 className="font-serif text-[34px] font-semibold leading-tight text-[#3a241a]">{item.title}</h3>
-                <p className="mt-4 text-[17px] leading-8 text-[#61483a]">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="about" className="mx-auto max-w-7xl px-6 py-8 lg:px-10 lg:py-12">
-          <div className="overflow-hidden rounded-[36px] border border-[#c8ab8d] bg-[linear-gradient(135deg,rgba(122,79,53,0.98),rgba(72,47,33,0.96))] p-8 text-[#fff6ed] shadow-[0_30px_100px_rgba(67,44,31,0.22)] lg:p-12">
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-              <div>
-                <h2 className="font-serif text-4xl font-semibold sm:text-5xl lg:text-[56px]">
-                  Our <span className="text-[#e0b083]">Culture</span>
-                </h2>
-                <p className="mt-6 max-w-2xl text-lg leading-9 text-[#f5e7d9]">
-                  At Merge Visions and Potencial, we believe premium work starts with clear standards, elegant execution, and ambitious people who care about both quality and results.
-                </p>
-                <div className="mt-8 space-y-4 text-[17px] text-[#f3e4d6]">
-                  <div>✦ Premium working environment with a strong focus on presentation and performance</div>
-                  <div>✦ Collaborative structure where execution, clarity, and speed matter</div>
-                  <div>✦ International mindset designed for brands with bigger ambitions</div>
-                </div>
+          <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-28">
+            <div className="flex flex-col justify-center">
+              <div className="mb-5 inline-flex w-fit rounded-full border border-[#d9c4a6] bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#b7793b] shadow-sm">
+                Premium Sales & Growth Partner
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                {stats.map((item) => (
+              <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] text-[#4f321f] sm:text-6xl lg:text-7xl">
+                Where refined brand vision meets measurable performance.
+              </h1>
+
+              <p className="mt-8 max-w-2xl text-lg leading-8 text-[#6b5140] sm:text-xl">
+                Merge Visions and Potencial helps ambitious brands grow through elegant positioning,
+                stronger sales systems, and execution designed to deliver premium results at scale.
+              </p>
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href="#contact"
+                  className="rounded-full border border-[#c79357] bg-gradient-to-br from-[#d9a874] to-[#b7793b] px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_14px_30px_rgba(183,121,59,0.24)] transition hover:translate-y-[-1px]"
+                >
+                  Book a Strategy Call
+                </a>
+                <a
+                  href="#services"
+                  className="rounded-full border border-[#dcc7aa] bg-white/80 px-7 py-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-[#6b5140] transition hover:border-[#b7793b] hover:text-[#b7793b]"
+                >
+                  Explore Services
+                </a>
+              </div>
+
+              <div className="mt-12 grid gap-4 sm:grid-cols-3">
+                {[
+                  'Luxury-inspired identity',
+                  'Performance-driven growth',
+                  'International market mindset',
+                ].map((item) => (
                   <div
-                    key={`culture-${item.label}`}
-                    className="rounded-[24px] border border-[#b98d68] bg-[rgba(23,14,10,0.16)] p-8 text-center backdrop-blur-sm"
+                    key={item}
+                    className="rounded-2xl border border-[#decab0] bg-white/70 px-5 py-4 text-sm font-medium text-[#6b5140] shadow-sm"
                   >
-                    <div className="font-serif text-4xl font-semibold text-[#f0b27a]">{item.value}</div>
-                    <div className="mt-3 text-base text-[#f8ebdf]">{item.label}</div>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center">
+              <div className="w-full rounded-[2rem] border border-[#dfccb0] bg-white/80 p-5 shadow-[0_20px_60px_rgba(96,63,37,0.12)] backdrop-blur">
+                <div className="rounded-[1.75rem] border border-[#ead9c2] bg-[linear-gradient(145deg,#fffaf4_0%,#f6ede2_100%)] p-8">
+                  <div className="mb-4 text-center text-[12px] font-semibold uppercase tracking-[0.5em] text-[#b7793b]">
+                    MVP
+                  </div>
+                  <div className="bg-gradient-to-br from-[#deaf7d] via-[#c58b4e] to-[#a56a33] bg-clip-text text-center font-serif text-7xl font-semibold tracking-wide text-transparent sm:text-8xl">
+                    MVP
+                  </div>
+                  <div className="mt-6 text-center font-serif text-2xl leading-tight text-[#a56a33] sm:text-3xl">
+                    Merge Visions and Potencial Ltd.
+                  </div>
+                  <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-[#c58b4e] to-transparent" />
+                  <p className="mx-auto mt-8 max-w-md text-center text-base leading-7 text-[#6b5140]">
+                    A premium growth identity inspired by polished execution, trust, clarity, and lasting client relationships.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="mx-auto max-w-7xl px-6 py-8 lg:px-10 lg:py-14">
+          <div className="rounded-[2rem] border border-[#dcc7aa] bg-[linear-gradient(135deg,#fffaf5_0%,#f4e7d7_100%)] p-8 shadow-[0_18px_50px_rgba(96,63,37,0.08)] lg:p-12">
+            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+              <div>
+                <div className="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-[#b7793b]">
+                  Our Culture
+                </div>
+                <h2 className="max-w-xl font-serif text-4xl font-semibold leading-tight text-[#4f321f] sm:text-5xl">
+                  Premium standards, clear communication, and real outcomes.
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-[#6b5140]">
+                  At Merge Visions and Potencial, we believe exceptional growth starts with refined presentation,
+                  disciplined execution, and people who care deeply about the result.
+                </p>
+                <div className="mt-8 space-y-4 text-[#6b5140]">
+                  {[
+                    'Premium working environment with a strong focus on performance and presentation.',
+                    'Collaborative structure where clarity, consistency, and speed genuinely matter.',
+                    'International mindset built for brands with bigger ambitions and higher standards.',
+                  ].map((point) => (
+                    <div key={point} className="flex gap-3 rounded-2xl border border-[#e4d2ba] bg-white/70 p-4 shadow-sm">
+                      <div className="mt-1 h-2.5 w-2.5 rounded-full bg-[#c58b4e]" />
+                      <p className="text-base leading-7">{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-[1.75rem] border border-[#e1cfb7] bg-white p-6 shadow-[0_10px_30px_rgba(96,63,37,0.08)]"
+                  >
+                    <div className="bg-gradient-to-br from-[#d9a874] via-[#c58b4e] to-[#a96f36] bg-clip-text font-serif text-4xl font-semibold text-transparent sm:text-5xl">
+                      {stat.value}
+                    </div>
+                    <div className="mt-4 text-base leading-7 text-[#6b5140]">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -208,82 +189,131 @@ export default function MergeVisionsHomepage() {
           </div>
         </section>
 
-        <section id="careers" className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-16">
-          <div className="mb-10 text-center">
-            <div className="text-[12px] font-semibold uppercase tracking-[0.35em] text-[#9a6b47]">Careers</div>
-            <h2 className="mt-4 font-serif text-4xl font-semibold text-[#3a241a] sm:text-5xl lg:text-[58px]">Open Positions</h2>
+        <section id="services" className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
+          <div className="mb-10 max-w-3xl">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-[#b7793b]">
+              Services
+            </div>
+            <h2 className="font-serif text-4xl font-semibold text-[#4f321f] sm:text-5xl">
+              Built for premium brands that want stronger growth.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-[#6b5140]">
+              We combine positioning, lead generation, and sales-focused systems to help businesses create momentum that lasts.
+            </p>
           </div>
 
-          <div className="space-y-6">
-            {jobs.map((job) => (
+          <div className="grid gap-6 lg:grid-cols-3">
+            {services.map((service) => (
               <div
-                key={job.title}
-                className="flex flex-col gap-6 rounded-[30px] border border-[#d6bda3] bg-[linear-gradient(145deg,rgba(255,255,255,0.78),rgba(244,235,225,0.72))] p-8 shadow-[0_16px_55px_rgba(95,66,44,0.08)] lg:flex-row lg:items-center lg:justify-between"
+                key={service.title}
+                className="group rounded-[2rem] border border-[#ddc8aa] bg-white p-8 shadow-[0_18px_45px_rgba(96,63,37,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(96,63,37,0.12)]"
               >
-                <div className="max-w-3xl">
-                  <div className="flex flex-wrap items-center gap-4">
-                    <h3 className="font-serif text-[36px] font-semibold leading-tight text-[#3a241a]">{job.title}</h3>
-                    <span className="rounded-full border border-[#dec4a8] bg-[#f3e7d7] px-4 py-2 text-sm font-semibold text-[#9a6b47]">
-                      {job.type}
-                    </span>
-                  </div>
-                  <div className="mt-4 text-sm font-medium uppercase tracking-[0.18em] text-[#87634c]">
-                    {job.dept} • {job.location}
-                  </div>
-                  <p className="mt-5 text-[17px] leading-8 text-[#61483a]">{job.text}</p>
+                <div className="mb-5 inline-flex rounded-full border border-[#ead7bf] bg-[#fbf6ef] px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#b7793b]">
+                  Premium Service
                 </div>
-
-                <a
-                  href="#contact"
-                  className="inline-flex rounded-full bg-[linear-gradient(135deg,#a56f45,#7e4e32)] px-7 py-4 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(119,77,50,0.22)] transition hover:scale-[1.02]"
-                >
-                  Apply Now →
-                </a>
+                <h3 className="font-serif text-3xl font-semibold text-[#5a3b24]">{service.title}</h3>
+                <p className="mt-5 text-base leading-8 text-[#6b5140]">{service.text}</p>
               </div>
             ))}
           </div>
+        </section>
 
-          <div className="mt-12 text-center">
-            <p className="text-lg text-[#6a4f3e]">Don&apos;t see the perfect role? We&apos;re always looking for exceptional talent.</p>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex rounded-full bg-[linear-gradient(135deg,#b1784b,#7f4d31)] px-8 py-4 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(119,77,50,0.22)] transition hover:scale-[1.02]"
-            >
-              Send Us Your Resume
-            </a>
+        <section id="careers" className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
+          <div className="rounded-[2rem] border border-[#dcc7aa] bg-[#fffaf5] p-8 shadow-[0_16px_50px_rgba(96,63,37,0.08)] lg:p-12">
+            <div className="mb-10 max-w-3xl">
+              <div className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-[#b7793b]">
+                Careers
+              </div>
+              <h2 className="font-serif text-4xl font-semibold text-[#4f321f] sm:text-5xl">
+                Join a team built around ambition, quality, and execution.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-[#6b5140]">
+                We are currently hiring for roles that support our sales operations and premium client growth strategy.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {jobs.map((job) => (
+                <div
+                  key={job.title}
+                  className="rounded-[1.75rem] border border-[#e2cfb4] bg-white p-8 shadow-[0_12px_36px_rgba(96,63,37,0.08)]"
+                >
+                  <div className="mb-4 inline-flex rounded-full border border-[#ead7bf] bg-[#faf4eb] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#b7793b]">
+                    Open Position
+                  </div>
+                  <h3 className="font-serif text-3xl font-semibold text-[#5a3b24]">{job.title}</h3>
+                  <p className="mt-5 text-base leading-8 text-[#6b5140]">{job.text}</p>
+                  <a
+                    href="#contact"
+                    className="mt-8 inline-flex rounded-full border border-[#c79357] px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#b7793b] transition hover:bg-[#b7793b] hover:text-white"
+                  >
+                    Apply Now
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-7xl px-6 pb-16 pt-4 lg:px-10 lg:pb-20">
-          <div className="rounded-[34px] border border-[#d2b89f] bg-[linear-gradient(145deg,rgba(255,255,255,0.82),rgba(244,235,225,0.74))] p-8 shadow-[0_18px_70px_rgba(91,62,39,0.10)] lg:p-12">
-            <div className="grid gap-8 lg:grid-cols-[1fr_0.88fr] lg:items-center">
-              <div>
-                <div className="text-[12px] font-semibold uppercase tracking-[0.35em] text-[#9a6b47]">Contact</div>
-                <h2 className="mt-4 font-serif text-4xl font-semibold text-[#3a241a] sm:text-5xl lg:text-[56px]">
-                  Ready to build something more powerful?
-                </h2>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-[#61483a]">
-                  Let&apos;s talk about positioning, premium lead generation, growth systems, or careers at Merge Visions and Potencial.
-                </p>
-              </div>
-
-              <div className="rounded-[28px] border border-[#dcc4ae] bg-[#f8efe7] p-8 shadow-inner">
-                <div className="space-y-4 text-lg text-[#4d3529]">
-                  <div><span className="font-semibold">Email:</span> info@mergevisionsandpotencial.com</div>
-                  <div><span className="font-semibold">Location:</span> Larnaca, Cyprus</div>
-                  <div><span className="font-semibold">Availability:</span> By appointment</div>
+        <section id="contact" className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
+          <div className="rounded-[2rem] border border-[#d9c1a2] bg-gradient-to-br from-[#c89258] via-[#b7793b] to-[#925824] p-[1px] shadow-[0_20px_60px_rgba(96,63,37,0.15)]">
+            <div className="rounded-[2rem] bg-[linear-gradient(135deg,#fffaf4_0%,#f3e5d5_100%)] px-8 py-12 lg:px-12 lg:py-16">
+              <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div>
+                  <div className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-[#b7793b]">
+                    Contact
+                  </div>
+                  <h2 className="font-serif text-4xl font-semibold text-[#4f321f] sm:text-5xl">
+                    Let’s build something that looks premium and performs like it.
+                  </h2>
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-[#6b5140]">
+                    Whether you want stronger positioning, more qualified leads, or a better sales structure,
+                    we’re ready to help you move with more clarity and impact.
+                  </p>
                 </div>
-                <a
-                  href="mailto:info@mergevisionsandpotencial.com"
-                  className="mt-8 inline-flex rounded-full bg-[linear-gradient(135deg,#a56f45,#7e4e32)] px-7 py-4 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(119,77,50,0.22)] transition hover:scale-[1.02]"
-                >
-                  Contact Us
-                </a>
+
+                <div className="rounded-[1.75rem] border border-[#e3d0b7] bg-white p-8 shadow-[0_14px_40px_rgba(96,63,37,0.08)]">
+                  <div className="space-y-5 text-[#6b5140]">
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b7793b]">Email</div>
+                      <div className="mt-2 text-lg font-medium">info@mergevisionsandpotencial.com</div>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b7793b]">Website</div>
+                      <div className="mt-2 text-lg font-medium">mergevisionsandpotencial.com</div>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b7793b]">Availability</div>
+                      <div className="mt-2 text-lg font-medium">Strategy calls by appointment</div>
+                    </div>
+                  </div>
+
+                  <a
+                    href="mailto:info@mergevisionsandpotencial.com"
+                    className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-[#c79357] bg-gradient-to-br from-[#d9a874] to-[#b7793b] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_12px_28px_rgba(183,121,59,0.22)] transition hover:translate-y-[-1px]"
+                  >
+                    Contact Us
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
+
+      <footer className="border-t border-[#dcc7aa] bg-[#f6f1ea]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-[#6b5140] lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <div>
+            <span className="font-semibold text-[#5a3b24]">MVP</span> — Merge Visions and Potencial Ltd.
+          </div>
+          <div className="flex flex-wrap gap-5">
+            <a href="#services" className="transition hover:text-[#b7793b]">Services</a>
+            <a href="#about" className="transition hover:text-[#b7793b]">About</a>
+            <a href="#careers" className="transition hover:text-[#b7793b]">Careers</a>
+            <a href="#contact" className="transition hover:text-[#b7793b]">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
