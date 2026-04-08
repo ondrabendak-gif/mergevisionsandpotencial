@@ -15,21 +15,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f3eee8;
-      --bg-soft: #faf6f1;
-      --card: #ffffff;
-      --text: #2a2320;
-      --muted: #63554d;
-      --heading: #3a302b;
-      --accent: #b7a08a;
-      --accent-dark: #7d6959;
-      --accent-soft: #d8c5b2;
-      --border: #ddd0c2;
-      --border-soft: #ebe1d7;
-      --shadow: 0 20px 50px rgba(70, 54, 42, 0.10);
-      --shadow-soft: 0 12px 32px rgba(70, 54, 42, 0.08);
-      --radius: 28px;
-      --logo-gradient: linear-gradient(135deg, #efe2d2 0%, #ccb39a 28%, #9f856e 56%, #705c4d 80%, #443a34 100%);
+     --bg: #0f0f0f;
+  --bg-soft: #161616;
+  --card: #1c1c1c;
+
+  --text: #e8e3dc;
+  --muted: #a89a8d;
+  --heading: #ffffff;
+
+  --accent: #d4af37;
+  --accent-dark: #a67c00;
+  --accent-soft: #f1d27a;
+
+  --border: rgba(212, 175, 55, 0.2);
+  --border-soft: rgba(212, 175, 55, 0.1);
+
+  --shadow: 0 20px 60px rgba(0,0,0,0.6);
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.4);
+
+  --logo-gradient: linear-gradient(135deg, #f5d67a, #d4af37, #a67c00);
     }
 
     * {
@@ -43,9 +47,9 @@
     body {
       margin: 0;
       background:
-        radial-gradient(circle at top left, rgba(216, 197, 178, 0.26), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(68, 58, 52, 0.08), transparent 26%),
-        var(--bg);
+      radial-gradient(circle at top left, rgba(212,175,55,0.08), transparent 25%),
+      radial-gradient(circle at bottom right, rgba(212,175,55,0.05), transparent 25%),
+      #0f0f0f;
       color: var(--text);
       font-family: 'Inter', sans-serif;
     }
@@ -67,8 +71,8 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(243, 238, 232, 0.92);
+     z-index: 50;
+      background: rgba(15, 15, 15, 0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -126,25 +130,28 @@
     }
 
     .btn-primary {
-      color: white;
-      border: 1px solid #8c7562;
-      background: linear-gradient(135deg, #d8c5b2, #9f856e, #5f4f44);
-      box-shadow: 0 14px 30px rgba(95, 79, 68, 0.24);
+  color: #111;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: linear-gradient(135deg, #f5d67a, #d4af37, #a67c00);
+  box-shadow: 0 10px 30px rgba(212,175,55,0.3);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 18px 50px rgba(212,175,55,0.5);
     }
 
     .btn-secondary {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--muted);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: #171717;
+  color: #e8e3dc;
     }
 
     .btn-secondary:hover {
-      border-color: var(--accent-dark);
-      color: var(--accent-dark);
+  border-color: #d4af37;
+  color: #f5d67a;
+  background: #1d1d1d;
+    }
     }
 
     .hero {
@@ -233,81 +240,96 @@
       margin-top: 38px;
     }
 
-    .feature-pill {
-      border: 1px solid #ddd1c5;
-      background: rgba(255, 255, 255, 0.74);
-      border-radius: 20px;
-      padding: 16px 18px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: var(--shadow-soft);
-    }
+.feature-pill {
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: #171717;
+  border-radius: 20px;
+  padding: 16px 18px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
+}
 
-    .logo-card-shell {
-      border: 1px solid #ddd1c5;
-      background: rgba(255, 255, 255, 0.86);
-      padding: 20px;
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-    }
+.logo-card-shell {
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: #171717;
+  padding: 20px;
+  border-radius: 34px;
+  box-shadow: var(--shadow);
+}
 
-    .logo-card {
-      border: 1px solid #e8ddd2;
-      border-radius: 28px;
-      padding: 34px;
-      background:
-        linear-gradient(145deg, #fffaf6 0%, #f1e5d8 100%);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .logo-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.82), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(112,92,77,0.10), transparent 30%);
-      pointer-events: none;
-    }
-
-    .logo-mini {
-      position: relative;
-      z-index: 1;
-      font-size: 12px;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--accent-dark);
-      margin-bottom: 10px;
-    }
+.logo-card {
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  border-radius: 28px;
+  padding: 34px;
+  background: linear-gradient(145deg, #181818 0%, #101010 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
     .logo-main {
-      position: relative;
-      z-index: 1;
-      font-family: 'Playfair Display', serif;
-      font-size: 110px;
-      line-height: 1;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      background: var(--logo-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 10px 20px rgba(95, 79, 68, 0.08);
-    }
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', serif;
+  font-size: 110px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 
-    .logo-sub {
-      position: relative;
-      z-index: 1;
-      margin-top: 18px;
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      line-height: 1.25;
-      color: #6b584b;
-    }
+  background: linear-gradient(135deg, #f5d67a, #d4af37, #a67c00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+.panel {
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: linear-gradient(135deg, #171717 0%, #101010 100%);
+  border-radius: 34px;
+  padding: 48px;
+  box-shadow: var(--shadow);
+}
+
+.service-card,
+.job-card,
+.contact-card {
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: #171717;
+  border-radius: 30px;
+  padding: 32px;
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+}
+
+.stat-card {
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: #171717;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-panel {
+  border-radius: 34px;
+  background: linear-gradient(135deg, #171717 0%, #101010 100%);
+  padding: 48px;
+}
+
+.contact-shell {
+  border-radius: 34px;
+  padding: 1px;
+  background: linear-gradient(135deg, #f5d67a, #d4af37, #7a5a00);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.brand-name,
+h3,
+.logo-sub {
+  color: #f2e7d8;
+}
 
     .logo-divider {
       position: relative;
